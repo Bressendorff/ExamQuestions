@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSE</title>
+</head>
+<body>
+    <h1>SSE - Server-sent Events</h1>
+    
+    <p>Status:</p>
+    <div id="server-sent_status"></div>
+
+    <p>Count:</p>
+    <div id="server-sent_count"></div>
+
+    <script>
+        const serverSentStatusDiv = document.getElementById("server-sent_status");
+        const serverSentCountDiv = document.getElementById("server-sent_count");
+
+        const eventSource = new EventSource("http://127.0.0.1:8000/getCount");
+
+        eventSource.addEventListener("message", (event) => {
+            serverSentCountDiv.textContent = event.data;
+        });
+
+        eventSource.addEventListener("open", (event) => {
+            serverSentStatusDiv.textContent = "Connected";
+        });
+
+        eventSource.addEventListener("error", (event) => {
+            if (event.target.readyState === EventSource.CLOSED) {
+                serverSentStatusDiv.textContent = 'Connection was closed';
+            } else if (event.target.readyState === EventSource.CONNECTING) {
+                serverSentStatusDiv.textContent = 'Connecting...';
+            } else {
+                serverSentStatusDiv.textContent = 'Error';
+            }
+        });
+
+    </script>
+</body>
+</html>

@@ -13,7 +13,7 @@ namespace FileBonanzaCSharp
 {
 	public static class Parser
 	{
-		private static string _basePath { get; set; } = "C:\\GithubRepos\\ExamQuestions\\01a Data parsing servers - Part I\\me";
+		private static string _basePath { get; set; } = "C:\\GithubRepos\\ExamQuestions\\01a-03a Data parsing servers\\me";
 
 		public static string ReadTxt()
 		{

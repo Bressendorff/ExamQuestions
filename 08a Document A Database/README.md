@@ -1,4 +1,4 @@
-##Documentation of MySQL
+## Documentation of MySQL
 
 You can use npx MRO to document your MySQL database. You can choose your desired output eg. HTML, JSON, Knex migration, Objection models. 
 

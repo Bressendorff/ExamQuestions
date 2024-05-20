@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase test</title>
+</head>
+<body>
+    <label>Email</label>
+    <input type="email" id="email"/>
+
+    <label>Password</label>
+    <input type="password" id="password"/>
+
+    <button id="signupButton">Signup</button>
+    <button id="loginButton">Login</button>
+
+
+    <button id="signinGoogle">Sign in with Google Account</button>
+
+
+    <label id="LoggedInUser"></label>
+    
+
+    <script src="app.js" type="module"></script>
+    <script>
+        const loginButtonClicked = () => {
+            const userCredentials = processInput();
+            signIn(userCredentials.email, userCredentials.password)
+        }
+
+        const signUpButtonClicked = () => {
+            const userCredentials = processInput();
+            createUser(userCredentials.email, userCredentials.password)
+        }
+
+        const googleSignInClicked = async () => {
+            await signInGoogle().then(userEmail => { // Assuming signInGoogle() returns a Promise
+            var userElement = document.getElementById("LoggedInUser");
+            userElement.textContent = userEmail;
+        });
+        }
+
+        function processInput() {
+            let emailElement = document.getElementById("email");
+            let emailInput = emailElement.value;
+
+            let passwordElement = document.getElementById("password");
+            let passwordInput = passwordElement.value;
+
+            return {email: emailInput, password: passwordInput}
+        }
+
+        document.getElementById("loginButton").addEventListener("click", loginButtonClicked);
+        document.getElementById("signupButton").addEventListener("click", signUpButtonClicked);
+        document.getElementById("signinGoogle").addEventListener("click", googleSignInClicked);
+    </script>
+</body>
+</html>

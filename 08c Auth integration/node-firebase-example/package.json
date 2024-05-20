@@ -1,0 +1,21 @@
+{
+  "name": "firebase-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "firebase": "^10.12.0"
+  },
+  "type": "module",
+  "devDependencies": {
+    "vite": "^5.2.11"
+  }
+}

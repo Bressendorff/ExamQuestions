@@ -1,5 +1,5 @@
 import Stripe from 'stripe';
-const stripe = new Stripe('sk_test_51PJHNSE0AQaB4GOLI3tG6lYnsSx0hrMdXbvoLCOgNmNIbyVWUCSWvXkcESHLZNfFesUoTbXeGekhyEewB51UXSIj00srB9OwcT');
+const stripe = new Stripe('');
 
 import express from "express";
 const app = express();

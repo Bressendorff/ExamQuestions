@@ -22,6 +22,7 @@ public partial class Order
 
     public int CustomerNumber { get; set; }
 
+
     public virtual Customer CustomerNumberNavigation { get; set; } = null!;
 
     public virtual ICollection<Orderdetail> Orderdetails { get; set; } = new List<Orderdetail>();
